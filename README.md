@@ -4,7 +4,7 @@ The advantages of incorporating Large Language Models (LLMs) in Natural Language
 
 ## Installation
 
-Installation for macOS/OSX,ARM/M1,`conda`,CPU, virtual env, English, efficiency.
+Install given configuration: macOS/OSX,ARM/M1,`conda`,CPU, virtual env, English, efficiency.
 
 For other installation options, see [install spaCy ](https://spacy.io/usage#quickstart).
 
@@ -19,10 +19,15 @@ step2: install commands:
 
 ```
 conda install -c conda-forge spacy
-python -m spacy download en_core_web_sm
 ```
 
+python -m spacy download en_core_web_sm # or en_core_web_trf for transformer-based model
+
 > `en_core_web_sm` is a small English model pipeline trained on web text.
+
+> for accurary use `python -m spacy download en_core_web_trf` for transformer-based model`
+
+For more details, see the [models](https://spacy.io/models/en#en_core_web_sm).
 
 step3: test installation:
 
@@ -32,83 +37,81 @@ python -m spacy validate
 
 ## Usage
 
-```
-# ---- wip ----
-2. Installation with extra models:
-
-```
-
-python -m spacy download en_core_web_sm en_core_web_md en_core_web_lg
-
+```shell
+python src/test.py
+python src/main.py
 ```
 
-3. Installation with extra dependencies:
+# -------wip ----------
+
+### 1. LLM-powered components
+
+#### 1.1 Tokenizer
 
 ```
-
-pip install spacy[lookups,transformers]
-
-```
-
-4. Conda installation:
-
-```
-
-conda install -c conda-forge spacy
-
-```
-
-5. Upgrading spaCy:
-
-```
-
-pip install -U spacy
-python -m spacy validate
-
-```
-
-6. Running spaCy with GPU:
-
-```
-
-pip install -U spacy[cuda113]
 import spacy
-spacy.prefer_gpu()
 nlp = spacy.load("en_core_web_sm")
-
+doc = nlp("This is a sentence.")
+for token in doc:
+    print(token.text)
 ```
 
-7. Compiling spaCy from source:
+#### 1.2 Part-of-speech tagger
 
 ```
-
-python -m pip install -U pip setuptools wheel
-git clone https://github.com/explosion/spaCy
-cd spaCy
-python -m venv .env
-source .env/bin/activate
-pip install -r requirements.txt
-pip install --no-build-isolation --editable .
-
+import spacy
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("This is a sentence.")
+for token in doc:
+    print(token.text, token.pos_)
 ```
 
-8. Building an executable:
+#### 1.3 Dependency parser
 
 ```
-
-git clone https://github.com/explosion/spaCy
-cd spaCy
-make
-
+import spacy
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("This is a sentence.")
+for token in doc:
+    print(token.text, token.pos_, token.dep_)
 ```
 
-9. Running tests:
+#### 1.4 Named entity recognizer
 
 ```
-
-python -m pytest --pyargs spacy
-python -m pytest --pyargs spacy --slow
-
+import spacy
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
+for ent in doc.ents:
+    print(ent.text, ent.start_char, ent.end_char, ent.label_)
 ```
 
+#### 1.5 Text classifier
+
+```
+import spacy
+nlp = spacy.load("en_core_web_sm")
+textcat = nlp.create_pipe("textcat", config={"exclusive_classes": True, "architecture": "simple_cnn"})
+nlp.add_pipe(textcat)
+textcat.add_label("POSITIVE")
+textcat.add_label("NEGATIVE")
+doc = nlp("This movie sucked")
+print(doc.cats)
+```
+
+#### 1.6 Rule-based matcher
+
+```
+import spacy
+from spacy.matcher import Matcher
+nlp = spacy.load("en_core_web_sm")
+matcher = Matcher(nlp.vocab)
+pattern = [{"LOWER": "hello"}, {"IS_PUNCT": True}, {"LOWER": "world"}]
+matcher.add("HelloWorld", [pattern])
+doc = nlp("Hello, world! Hello world!")
+matches = matcher(doc)
+for match_id, start, end in matches:
+    string_id = nlp.vocab.strings[match_id]  # Get string representation
+    span = doc[start:end]  # The matched span
+    print(match_id, string_id, start, end, span.text)
 ```
