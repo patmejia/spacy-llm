@@ -9,23 +9,15 @@ def process_text(text):
     return [(token.text, token.pos_, token.dep_) for token in doc]
 
 
-text = """Trivia: The gut microbiome plays a crucial role in the production of short-chain fatty acids (SCFAs), such as butyrate, through the activity of a bacterium called Faecalibacterium prausnitzii.
+text = """Trivia: The bacterium Faecalibacterium prausnitzii in the human gut microbiome is responsible for producing butyrate, a short-chain fatty acid.
 
-Explanation: Faecalibacterium prausnitzii is a commensal bacterium found in the human gut. It is known for its ability to produce significant amounts of butyrate, a short-chain fatty acid. Butyrate is a vital energy source for the cells lining the colon and has been associated with various health benefits.
-
-The production of butyrate by Faecalibacterium prausnitzii is achieved through a fermentation process. This bacterium utilizes complex carbohydrates, such as dietary fiber, as its primary substrate. Through enzymatic reactions, it breaks down these carbohydrates into smaller molecules, including acetate, propionate, and butyrate.
-
-Within the gut, Faecalibacterium prausnitzii possesses specialized enzymes, such as glycoside hydrolases and acetate kinase, which enable it to efficiently metabolize complex carbohydrates. This metabolic pathway ultimately leads to the synthesis of butyrate.
-
-Butyrate has numerous beneficial effects on the gut and overall health. It serves as an energy source for colonocytes, promoting their growth and maintenance. Additionally, butyrate has anti-inflammatory properties and helps to maintain the integrity of the gut barrier. Studies have suggested that a decreased abundance of Faecalibacterium prausnitzii and reduced levels of butyrate production are associated with certain gut disorders, such as inflammatory bowel disease.
-
-Hence, the intricate ability of Faecalibacterium prausnitzii to utilize dietary fiber and produce butyrate highlights its significance in maintaining gut health and underscores the importance of a diverse and balanced gut microbiome."""
+Explanation: Faecalibacterium prausnitzii utilizes complex carbohydrates, such as dietary fiber, as its primary energy source. Through a fermentation process, it breaks down these carbohydrates into smaller molecules, including butyrate. Butyrate has beneficial effects on gut health, serving as an energy source for colon cells, promoting their growth, maintaining the gut barrier integrity, and reducing inflammation. Faecalibacterium prausnitzii's ability to produce butyrate highlights its importance in maintaining a healthy gut microbiome."""
 
 result = process_text(text)
 print("Text:\n")
 print(text)
 print("\nResult:\n")
-pprint(result[:10])  # print upper 10 elements
+pprint(result[:3])  # print upper 3 elements
 print("\nEach element in the result is a 3-tuple (token, part of speech, dependency).")
 print(f'The text was processed into {len(result)} such tuples.')
 

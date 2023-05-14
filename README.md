@@ -1,35 +1,50 @@
-# LLMs in SpaCy: enables NLP pipelines
+# spacy-llms: augmenting nlp pipelines
 
-The advantages of incorporating Large Language Models (LLMs) in Natural Language Processing (NLP) tasks and demonstrates the synergistic combination of spaCy's components, which utilize supervised learning or rule-based methodologies, with LLM-powered components.
+Enabling NLP pipelines with Large Language Models (LLMs), combining spaCy's supervised learning or rule-based components with LLM-powered features.
+![process_text_foo](process_text.gif)
 
 ## Installation
 
-Install given configuration: macOS/OSX,ARM/M1,`conda`,CPU, virtual env, English, efficiency.
+Follow these steps for installation:
 
-For other installation options, see [install spaCy ](https://spacy.io/usage#quickstart).
+- macOS/OSX
+- ARM/M1
+- `conda`
+- CPU
+- virtual env
+- English
+- efficiency
 
-### step1: env setup:\*\*
+For other setups, refer to [spaCy's installation guide](https://spacy.io/usage#quickstart).
+
+### Step 1: Environment setup
 
 ```
 conda create --name spacy-llm
 conda activate spacy-llm
 ```
 
-### step2: install commands:\_\*\*
+### Step 2: Install spaCy
 
 ```
 conda install -c conda-forge spacy
 ```
 
-python -m spacy download en_core_web_sm # or en_core_web_trf for transformer-based model
+To download the small English model trained on web text:
 
-> `en_core_web_sm` is a small English model pipeline trained on web text.
+```
+python -m spacy download en_core_web_sm
+```
 
-> for accurary use `python -m spacy download en_core_web_trf` for transformer-based model`
+For better accuracy, use a transformer-based model:
 
-For more details, see the [models](https://spacy.io/models/en#en_core_web_sm).
+```
+python -m spacy download en_core_web_trf
+```
 
-**_step3: test installation:_**
+See [spaCy's models](https://spacy.io/models/en#en_core_web_sm) for more details.
+
+### Step 3: Test installation
 
 ```
 python -m spacy validate
@@ -45,17 +60,17 @@ python src/main.py
 ## Components
 
 `process_text(text)`
-Extracts `(token, POS, dependency)`: tokens, part-of-speech tags, and dependency tags using Spacy.
+Extracts `(token, POS, dependency)`: tokens, part-of-speech tags, and dependency tags using spaCy.
 
-**input**
+**Input**
 
 - `text` (str): The text to process.
 
-**output**
+**Output**
 
 - A list of tuples: `(token, POS, dependency)`
 
-**\*example**
+**Example**
 
 ```python
 text = "This is an example sentence."
@@ -68,3 +83,20 @@ Output:
 ```
 [('This', 'DET', 'nsubj'), ('is', 'VERB', 'ROOT'), ('an', 'DET', 'det'), ('example', 'NOUN', 'attr'), ('sentence', 'NOUN', 'pobj'), ('.', 'PUNCT', 'punct')]
 ```
+
+## Roadmap
+
+1. **Optimize LLM Integration**: Enhance Large Language Model integration.
+2. **Extend Models**: Incorporate sentiment analysis.
+3. **API Development**: Design a REST API for external usage.
+4. **Testing**: Expand unit and integration tests.
+5. **Dockerization**: Containerize application for portability.
+
+## Contributing
+
+To contribute, fork the repository, implement changes, run tests ✓, and submit a pull request We appreciate your help!
+
+## Acknowledgements
+
+- [explosion_ai 💥](https://github.com/explosion)
+- [@spacy_io 🪐](https://github.com/explosion/spacy-llm)
