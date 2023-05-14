@@ -3,6 +3,10 @@ from main import process_text
 
 class TestProcessText(unittest.TestCase):
     def test_process_text(self):
+        """
+        Test the process_text function using a simple test sentence. Verify that the output matches
+        the expected output.
+        """
         text = "This is a test sentence."
         expected_output = [
             ("This", "PRON", "nsubj"),

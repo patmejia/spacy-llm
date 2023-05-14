@@ -1,13 +1,13 @@
 import spacy
 from pprint import pprint
 
+# Load the Spacy model globally so it only needs to be loaded once
+nlp = spacy.load("en_core_web_sm")
+
 def process_text(text):
-    nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
-    result = []
-    for token in doc:
-        result.append((token.text, token.pos_, token.dep_))
-    return result
+    return [(token.text, token.pos_, token.dep_) for token in doc]
+
 
 text = """Trivia: The gut microbiome plays a crucial role in the production of short-chain fatty acids (SCFAs), such as butyrate, through the activity of a bacterium called Faecalibacterium prausnitzii.
 
@@ -25,7 +25,7 @@ result = process_text(text)
 print("Text:\n")
 print(text)
 print("\nResult:\n")
-pprint(result[:10])  # Print only the first 10 elements for brevity
+pprint(result[:10])  # print upper 10 elements
 print("\nEach element in the result is a 3-tuple (token, part of speech, dependency).")
 print(f'The text was processed into {len(result)} such tuples.')
 

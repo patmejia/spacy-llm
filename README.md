@@ -8,14 +8,14 @@ Install given configuration: macOS/OSX,ARM/M1,`conda`,CPU, virtual env, English,
 
 For other installation options, see [install spaCy ](https://spacy.io/usage#quickstart).
 
-step1: env setup:
+### step1: env setup:\*\*
 
 ```
 conda create --name spacy-llm
 conda activate spacy-llm
 ```
 
-step2: install commands:
+### step2: install commands:\_\*\*
 
 ```
 conda install -c conda-forge spacy
@@ -29,7 +29,7 @@ python -m spacy download en_core_web_sm # or en_core_web_trf for transformer-bas
 
 For more details, see the [models](https://spacy.io/models/en#en_core_web_sm).
 
-step3: test installation:
+**_step3: test installation:_**
 
 ```
 python -m spacy validate
@@ -42,76 +42,29 @@ python src/test.py
 python src/main.py
 ```
 
-# -------wip ----------
+## Components
 
-### 1. LLM-powered components
+`process_text(text)`
+Extracts `(token, POS, dependency)`: tokens, part-of-speech tags, and dependency tags using Spacy.
 
-#### 1.1 Tokenizer
+**input**
 
-```
-import spacy
-nlp = spacy.load("en_core_web_sm")
-doc = nlp("This is a sentence.")
-for token in doc:
-    print(token.text)
-```
+- `text` (str): The text to process.
 
-#### 1.2 Part-of-speech tagger
+**output**
 
-```
-import spacy
-nlp = spacy.load("en_core_web_sm")
-doc = nlp("This is a sentence.")
-for token in doc:
-    print(token.text, token.pos_)
+- A list of tuples: `(token, POS, dependency)`
+
+**\*example**
+
+```python
+text = "This is an example sentence."
+processed_text = process_text(text)
+print(processed_text)
 ```
 
-#### 1.3 Dependency parser
+Output:
 
 ```
-import spacy
-nlp = spacy.load("en_core_web_sm")
-doc = nlp("This is a sentence.")
-for token in doc:
-    print(token.text, token.pos_, token.dep_)
-```
-
-#### 1.4 Named entity recognizer
-
-```
-import spacy
-nlp = spacy.load("en_core_web_sm")
-doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
-for ent in doc.ents:
-    print(ent.text, ent.start_char, ent.end_char, ent.label_)
-```
-
-#### 1.5 Text classifier
-
-```
-import spacy
-nlp = spacy.load("en_core_web_sm")
-textcat = nlp.create_pipe("textcat", config={"exclusive_classes": True, "architecture": "simple_cnn"})
-nlp.add_pipe(textcat)
-textcat.add_label("POSITIVE")
-textcat.add_label("NEGATIVE")
-doc = nlp("This movie sucked")
-print(doc.cats)
-```
-
-#### 1.6 Rule-based matcher
-
-```
-import spacy
-from spacy.matcher import Matcher
-nlp = spacy.load("en_core_web_sm")
-matcher = Matcher(nlp.vocab)
-pattern = [{"LOWER": "hello"}, {"IS_PUNCT": True}, {"LOWER": "world"}]
-matcher.add("HelloWorld", [pattern])
-doc = nlp("Hello, world! Hello world!")
-matches = matcher(doc)
-for match_id, start, end in matches:
-    string_id = nlp.vocab.strings[match_id]  # Get string representation
-    span = doc[start:end]  # The matched span
-    print(match_id, string_id, start, end, span.text)
+[('This', 'DET', 'nsubj'), ('is', 'VERB', 'ROOT'), ('an', 'DET', 'det'), ('example', 'NOUN', 'attr'), ('sentence', 'NOUN', 'pobj'), ('.', 'PUNCT', 'punct')]
 ```
