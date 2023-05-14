@@ -1,7 +1,7 @@
 # spacy-llms: augmenting nlp pipelines
 
 Enabling NLP pipelines with Large Language Models (LLMs), combining spaCy's supervised learning or rule-based components with LLM-powered features.
-![process_text_foo](process_text.gif)
+![process_text_foo](docs/process_text.gif)
 
 ## Installation
 
