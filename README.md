@@ -59,30 +59,32 @@ python src/main.py
 
 ## Components
 
-`process_text(text)`
-Extracts `(token, POS, dependency)`: tokens, part-of-speech tags, and dependency tags using spaCy.
+`process_text(text)` extracts `(token, POS, dependency)` from text.
 
-**Input**
+    input:
+    ```python
+    text = "Arthur C. Clarke postulated geosynchronization."
+    processed_text = process_text(text)
+    ```
+    output:
+    ```
+    [('Arthur', 'PROPN', 'nsubj'), ('C.', 'PROPN', 'flat'), ('Clarke', 'PROPN', 'flat'), ('postulated', 'VERB', 'ROOT'), ('geosynchronization', 'NOUN', 'dobj'), ('.', 'PUNCT', 'punct')]
+    ```
 
-- `text` (str): The text to process.
+`extract_entities(text)` identifies named entities in text.
 
-**Output**
+    input:
 
-- A list of tuples: `(token, POS, dependency)`
+    ```python
+    text = "Faecalibacterium prausnitzii produces butyrate."
+    entities = extract_entities(text)
+    ```
+    output:
 
-**Example**
+    ```[('Faecalibacterium prausnitzii', 'ORG'), ('butyrate', 'PRODUCT')]
+    ```
 
-```python
-text = "This is an example sentence."
-processed_text = process_text(text)
-print(processed_text)
-```
-
-Output:
-
-```
-[('This', 'DET', 'nsubj'), ('is', 'VERB', 'ROOT'), ('an', 'DET', 'det'), ('example', 'NOUN', 'attr'), ('sentence', 'NOUN', 'pobj'), ('.', 'PUNCT', 'punct')]
-```
+The list of entity types is available [here](https://spacy.io/api/annotation#named-entities).
 
 ## Roadmap
 
@@ -100,3 +102,15 @@ To contribute, fork the repository, implement changes, run tests ✓, and submit
 
 - [explosion_ai 💥](https://github.com/explosion)
 - [@spacy_io 🪐](https://github.com/explosion/spacy-llm)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Notes
+
+- Dependency parsing is instrumental in information extraction and gains additional power when complemented with named entity recognition.
+
+- Proper testing ensures reliability of NLP pipeline, enhancing predictability and stability of the system.
+
+- Refer to [entities](https://spacy.io/usage/linguistic-features#named-entities) for comprehensive details on the entity recognition feature utilized in our project.
