@@ -5,7 +5,7 @@ Enabling NLP pipelines with Large Language Models (LLMs), combining spaCy's supe
 
 ## Installation
 
-Follow these steps for installation:
+The provided installation steps suit a configuration:
 
 - macOS/OSX
 - ARM/M1
