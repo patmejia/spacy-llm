@@ -53,7 +53,7 @@ python -m spacy validate
 ## Usage
 
 ```shell
-python src/test.py
+pytest src/test.py
 python src/main.py
 ```
 
