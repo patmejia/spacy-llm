@@ -1,5 +1,7 @@
 # spacy-llms: augmenting nlp pipelines
 
+<img width="514" alt="Screenshot 2023-05-16 at 11 31 42 AM" src="https://github.com/patmejia/spacy-llm/assets/92187562/af4ce21a-e872-4f5f-9d1b-cc464d812157">
+
 a integration of spacy's components with Large Language Models (LLMs) to boost text processing, entity extraction, NER, and summarization. Includes unit and integration tests, fixtures, and samples.
 
 enabling NLP pipelines with Large Language Models (LLMs), combining spacy's supervised learning or rule-based components with LLM-powered features.
