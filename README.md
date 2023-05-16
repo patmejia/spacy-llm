@@ -54,37 +54,25 @@ python -m spacy validate
 
 ```shell
 pytest src/test.py
+```
+
+```shell
 python src/main.py
 ```
 
-## Components
+```shell
+✗ python src/get_top_ranked_phrases.py
+```
+
+## Features
 
 `process_text(text)` extracts `(token, POS, dependency)` from text.
 
-    input:
-    ```python
-    text = "Arthur C. Clarke postulated geosynchronization."
-    processed_text = process_text(text)
-    ```
-    output:
-    ```
-    [('Arthur', 'PROPN', 'nsubj'), ('C.', 'PROPN', 'flat'), ('Clarke', 'PROPN', 'flat'), ('postulated', 'VERB', 'ROOT'), ('geosynchronization', 'NOUN', 'dobj'), ('.', 'PUNCT', 'punct')]
-    ```
+`extract_entities(text)` identifies named entities in text. [entites ⩩](https://spacy.io/api/annotation#named-entities).
 
-`extract_entities(text)` identifies named entities in text.
+`get_top_ranked_phrases(text)` extracts top ranked phrases from text.`
 
-    input:
-
-    ```python
-    text = "Faecalibacterium prausnitzii produces butyrate."
-    entities = extract_entities(text)
-    ```
-    output:
-
-    ```[('Faecalibacterium prausnitzii', 'ORG'), ('butyrate', 'PRODUCT')]
-    ```
-
-The list of entity types is available [here](https://spacy.io/api/annotation#named-entities).
+`summarize_text_returns_expected_summary(nlp, geosynchronization_text)`
 
 ## Roadmap
 
