@@ -95,7 +95,11 @@ was the first to postulate this concept, which is why geosynchronous orbits are 
 
 ## roadmap
 
-optimize LLM Integration**: Enhance Large Language Model integration. 2. **Extend Models**: Incorporate sentiment analysis. 3. **API Development**: Design a REST API for external usage. 4. **Testing: Expand unit and integration tests. 5. **Dockerization**: Containerize application for portability.
+✎ optimize LLM Integration </br>
+✎ extend models </br>
+✎ api development </br>
+✎ testing </br>
+✎ dockerization </br>
 
 ## contributing
 
