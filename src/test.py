@@ -17,19 +17,23 @@ def geosynchronization_text():
     was the first to postulate this concept, which is why geosynchronous orbits are sometimes referred to as Clarke orbits."""
 
 
-@pytest.fixture
 def test_process_text_returns_expected_tuples(nlp, geosynchronization_text):
-    result = main.test_process_text_returns_expected_tuples(nlp, geosynchronization_text)
+    result = main.process_text_returns_expected_tuples(nlp, geosynchronization_text)
     assert len(result) > 0, "Expected process_text to return at least one tuple, but it returned an empty list"
     assert all(isinstance(x, tuple) and len(x) == 3 for x in result), "Expected each element in the result to be a 3-tuple (text, pos, dep), but found a different structure"
     assert result[0][0] == "Trivia", "Expected the first token to be 'Trivia', but found a different token"
 
 
-@pytest.fixture
 def test_extract_entities_returns_expected_entity_tuples(nlp, geosynchronization_text):
     result = main.extract_entities_returns_expected_entity_tuples(nlp, geosynchronization_text)
     assert len(result) > 0, "Expected extract_entities to return at least one tuple, but it returned an empty list"
     assert all(isinstance(x, tuple) and len(x) == 2 for x in result), "Expected each element in the result to be a 2-tuple (entity, entity type), but found a different structure"
+
+
+def test_summarize_text_returns_expected_summary(nlp, geosynchronization_text):
+    result = main.summarize_text_returns_expected_summary(nlp, geosynchronization_text)
+    assert len(result) > 0, "Expected summarize_text to return at least one sentence, but it returned an empty list"
+    assert all(isinstance(x, str) for x in result), "Expected each element in the result to be a string, but found a different structure"
 
 
 if __name__ == '__main__':
