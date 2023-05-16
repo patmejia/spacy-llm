@@ -25,11 +25,10 @@ activate virtual environment and install spacy:
 terminal:
 
 ```shell
-cconda create -n venv
+conda create -n venv
 conda activate venv
 conda install -c conda-forge spacy
 python -m spacy download en_core_web_sm
-
 python -m spacy validate
 ```
 
