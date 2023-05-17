@@ -130,4 +130,4 @@ To contribute, fork the repository, implement changes, run tests ✓, and submit
 ✔︎ [@spacy_io 🪐](https://github.com/explosion/spacy-llm)</br>
 ✔︎ [DerwenAI 🌲](https://github.com/DerwenAI)</br>
 ✔︎ [spacy-pytextrank ⩩ ](https://spacy.io/universe/project/spacy-pytextrank)</br>
-✔︎ [textrank: bringing order into texts 🗄️](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)</br>
+✔︎ [{rada,tarau}@cs.unt.edu - textrank: bringing order into texts 🗄️](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)</br>
