@@ -2,7 +2,7 @@
 
 <img width="514" alt="Screenshot 2023-05-16 at 11 31 42 AM" src="https://github.com/patmejia/spacy-llm/assets/92187562/af4ce21a-e872-4f5f-9d1b-cc464d812157">
 
-a integration of spacy's components with Large Language Models (LLMs) to boost text processing, entity extraction, NER, and summarization. Includes unit and integration tests, fixtures, and samples.
+integration of spacy's components with Large Language Models (LLMs) to boost text processing, entity extraction, NER, and summarization. Includes unit and integration tests, fixtures, and samples.
 
 enabling NLP pipelines with Large Language Models (LLMs), combining spacy's supervised learning or rule-based components with LLM-powered features.
 
@@ -104,7 +104,7 @@ was the first to postulate this concept, which is why geosynchronous orbits are 
 
 ## contributing
 
-To contribute, fork the repository, implement changes, run tests ✓, and submit a pull request We appreciate your help!
+To contribute, fork the repository, implement changes, run tests ✓, and submit a pull request We appreciate and support collaborationsX
 
 ## notes
 
@@ -126,5 +126,8 @@ To contribute, fork the repository, implement changes, run tests ✓, and submit
 
 ## acknowledgements
 
-✔︎ [explosion_ai 💥](https://github.com/explosion)</br >
-✔︎ [@spacy_io 🪐](https://github.com/explosion/spacy-llm)
+✔︎ [explosion_ai 💥](https://github.com/explosion)</br>
+✔︎ [@spacy_io 🪐](https://github.com/explosion/spacy-llm)</br>
+✔︎ [DerwenAI 🌲](https://github.com/DerwenAI)</br>
+✔︎ [spacy-pytextrank ⩩ ](https://spacy.io/universe/project/spacy-pytextrank)</br>
+✔︎ [textrank: bringing order into texts 🗄️](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)</br>
