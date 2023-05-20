@@ -104,7 +104,7 @@ was the first to postulate this concept, which is why geosynchronous orbits are 
 
 ## contributing
 
-To contribute, fork the repository, implement changes, run tests ✓, and submit a pull request We appreciate and support collaborationsX
+To contribute, fork the repository, implement changes, run tests ✓, and submit a pull request We appreciate and support collaborations 🤝
 
 ## notes
 
