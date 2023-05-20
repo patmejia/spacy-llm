@@ -43,7 +43,7 @@ i.e.
 ```shell
 python -m spacy download en_core_web_trf
 ```
-
+see [spacy donwload method ⩩ ](https://spacy.io/api/cli#download)
 see [spacy models ⩩ ](https://spacy.io/models/en#en_core_web_sm)
 
 ## 🏁 start run:
