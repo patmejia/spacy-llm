@@ -29,7 +29,7 @@ terminal:
 ```shell
 conda create -n venv
 conda activate venv
-conda install --file requirements.txt
+conda install -c conda-forge spacy
 python -m spacy download en_core_web_sm
 python -m spacy validate
 ```
