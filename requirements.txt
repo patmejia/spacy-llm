@@ -1,2 +1,2 @@
-spacy
-pytest
+spacy==3.0.6
+pytest==6.2.3
